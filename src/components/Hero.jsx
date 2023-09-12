@@ -41,7 +41,7 @@ const Hero = ({ firstFiveMovies, setMovies }) => {
         >
           {firstFiveMovies.map((movieReq) => (
             <div key={movieReq.id} className="w-full h-96">
-              <img src={API_IMG + movieReq.poster_path} alt={movieReq.title} className='bg-contain'/>
+              <img src={API_IMG + movieReq.poster_path} alt={movieReq.title} className='bg-contain object-center'/>
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="absolute inset-0 flex items-center justify-left px-20">
                 <div className="text-white text-left w-[400px] pt-16">

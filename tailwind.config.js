@@ -31,4 +31,9 @@ export default {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      placeholderColor: ['focus'],
+    },
+  },
 }

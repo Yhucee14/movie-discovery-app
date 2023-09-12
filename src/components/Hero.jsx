@@ -4,11 +4,12 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar from './Navbar';
 import imdb from "../assets/IMDB.png";
+import Featured from './Featured';
 
 const API_IMG = 'https://image.tmdb.org/t/p/w500/';
 const CAROUSEL_DELAY = 3000; // Time in milliseconds between carousel slides
 
-const Hero = ({ firstFiveMovies, setMovies }) => {
+const Hero = ({ firstFiveMovies, setMovies, movies }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -62,6 +63,9 @@ const Hero = ({ firstFiveMovies, setMovies }) => {
           ))}
         </Carousel>
       </div>
+      
+      <Featured movies={movies} setMovies={setMovies} />
+
     </div>
 
   );
@@ -70,6 +74,15 @@ const Hero = ({ firstFiveMovies, setMovies }) => {
 // Add prop type validation for firstFiveMovies prop
 Hero.propTypes = {
   firstFiveMovies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      overview: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+
+  movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       poster_path: PropTypes.string.isRequired,

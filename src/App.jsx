@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import Hero from "../src/components/Hero"
 import Featured from "./components/Featured";
+import Footer from "./components/Footer";
 
 const API_URL= "https://api.themoviedb.org/3/movie/popular?api_key=ea276d358d5386e1de3f4615ae10ec26";
 
@@ -34,6 +35,7 @@ useEffect(() => {
     <div>
       <Hero firstFiveMovies={firstFiveMovies} setFirstFiveMovies={setFirstFiveMovies} setMovies={setMovies}/>
       <Featured movies={movies} setMovies={setMovies} />
+      <Footer />
     </div>
   )
 }

@@ -9,7 +9,7 @@ const Featured = ({movies }) => {
     <div className='px-5 py-5'>
       <div className='flex flex-row justify-between py-2'>
         <h1>Featured Movie</h1>
-          <a className='flex flex-row px-3 '>See more <img src={right} alt="Logo" className="h-4 mt-1 px-3" /></a>
+          <a className='flex flex-row px-3 text-red-500'>See more <img src={right} alt="Logo" className="h-4 mt-1 px-3" /></a>
       </div>
 
     <div className='grid sm:grid-cols-4 gap-2 py-2'>

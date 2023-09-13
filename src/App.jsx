@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../src/components/Hero';
 import Featured from './components/Featured';
-import Footer from './components/Footer';
 import MovieDetails from './components/MovieDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -26,7 +25,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setFirstFiveMovies(data.results.slice(0, 5));
+        setFirstFiveMovies(data.results.slice(0, 3));
       });
   }, []);
 
@@ -36,9 +35,8 @@ const App = () => {
         <Route path="/" element={<Hero firstFiveMovies={firstFiveMovies} movies={movies} setFirstFiveMovies={setFirstFiveMovies} setMovies={setMovies} />} />
         <Route path="/featured" element={<Featured movies={movies} setMovies={setMovies} />} />
         {/* Use the :id parameter in the path */}
-        <Route path="/movies/:id" element={<MovieDetails />} />
+        <Route path="/movies/:id" element={<MovieDetails firstFiveMovies={firstFiveMovies} />} />
       </Routes>
-      <Footer />
     </Router>
   );
 };

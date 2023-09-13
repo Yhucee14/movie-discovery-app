@@ -5,6 +5,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar from './Navbar';
 import imdb from "../assets/IMDB.png";
 import Featured from './Featured';
+import Footer from '../components/Footer';
 
 const API_IMG = 'https://image.tmdb.org/t/p/w500/';
 const CAROUSEL_DELAY = 3000; // Time in milliseconds between carousel slides
@@ -65,6 +66,9 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
       </div>
       
       <Featured movies={movies} setMovies={setMovies} />
+
+      
+      <Footer />
 
     </div>
 

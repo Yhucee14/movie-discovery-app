@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Hero from '../src/components/Hero';
 import Featured from './components/Featured';
 import MovieDetails from './components/MovieDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const API_URL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=ea276d358d5386e1de3f4615ae10ec26';
+const movieUrl = import.meta.env.VITE_MOVIEBOX_URL;
 
 const App = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch(movieUrl)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -21,7 +21,7 @@ const App = () => {
   const [firstFiveMovies, setFirstFiveMovies] = useState([]);
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch(movieUrl)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

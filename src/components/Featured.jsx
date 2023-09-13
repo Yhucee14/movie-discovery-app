@@ -4,7 +4,7 @@ import right from "../assets/right.png"
 import { Link } from 'react-router-dom';
 
 
-const API_IMG = 'https://image.tmdb.org/t/p/w500/';
+const imgUrl = import.meta.env.VITE_MOVIEBOX_IMG;
 
 const Featured = ({ movies }) => {
   return (
@@ -21,16 +21,9 @@ const Featured = ({ movies }) => {
           <Link key={movieReq.id} to={`/movies/${movieReq.id}`}>
             {/* Wrap each movie card in a Link */}
             <div className='card flex flex-col py-4 '>
-              <img src={API_IMG + movieReq.poster_path} alt={movieReq.title} className='object-cover h-auto object-center' />
+              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='object-cover h-auto object-center' />
               <span>{movieReq.release_date}</span>
               <h1>{movieReq.title}</h1>
-              {/* <div className='flex flex-col justify-between'>
-                <div>
-                  <img />
-                  <h1>{movieReq.}</h1>
-                </div>
-                <div></div>
-              </div> */}
             </div>
           </Link>
         ))}

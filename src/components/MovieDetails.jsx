@@ -11,8 +11,10 @@ import ticket from "../assets/ticket.png"
 import down from "../assets/down.png"
 import { Link } from 'react-router-dom';
 
-const API_KEY = 'ea276d358d5386e1de3f4615ae10ec26';
+const movieKey = import.meta.env.VITE_MOVIEBOX_KEY;
 const API_URL = 'https://api.themoviedb.org/3/movie/';
+
+
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -22,7 +24,7 @@ const MovieDetails = () => {
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
-                const response = await fetch(`${API_URL}${id}?api_key=${API_KEY}`);
+                const response = await fetch(`${API_URL}${id}?api_key=${movieKey}`);
                 if (!response.ok) {
                     throw new Error('Movie not found.');
                 }
@@ -30,7 +32,7 @@ const MovieDetails = () => {
                 setMovieDetails(data);
 
                 // Fetch credits information (includes director, actors, and writers)
-                const creditsResponse = await fetch(`${API_URL}${id}/credits?api_key=${API_KEY}`);
+                const creditsResponse = await fetch(`${API_URL}${id}/credits?api_key=${movieKey}`);
                 if (creditsResponse.ok) {
                     const creditsData = await creditsResponse.json();
                     setCredits(creditsData);

@@ -97,10 +97,37 @@ const MovieDetails = () => {
                 </div>
             </div>
 
-            <div className='w-[74%] px-5'>
-                <div className='p-20 flex justify-center'>
-                    video
+            <div className='w-full px-5'>
+                <div className='p-5 flex justify-center w-full'>
+                    <div className="relative w-full">
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
+                            alt={movieDetails.title}
+                            className='w-full h-[500px]'
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <button
+                                className="bg-gray-300  border border-gray-400 rounded-full p-4 hover:bg-white hover:text-black text-black transition duration-300"
+
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-8 w-8"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M7.293 4.293a1 1 0 011.32-.083l6 4a1 1 0 010 1.66l-6 4a1 1 0 01-1.237-1.237l4-6a1 1 0 01.083-1.32z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
+
                 <div className='flex flex-row '>
                     <h2 data-testid="movie-title" className='pr-3 py-4 font-semibold'>{movieDetails.title} .</h2>
                     <p data-testid="movie-release-date" className='px-3 py-4 font-semibold'>{movieDetails.release_date}</p>
@@ -108,11 +135,13 @@ const MovieDetails = () => {
                 </div>
 
                 <div className='grid grid-cols-2 gap-2'>
-                    <div className='w-[120%]  '>
+                    <div className='w-[100%] px-2 py-2'>
                         <p data-testid="movie-overview">{movieDetails.overview}</p>
                     </div>
-                    <div className='w-[150px] flex justify-items-start justify-center'>
-                        box
+                    <div className=' flex px-3'>
+                       <button>
+                        See Showtimes
+                       </button>
                     </div>
                 </div>
 

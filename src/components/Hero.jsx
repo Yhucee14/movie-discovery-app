@@ -4,7 +4,6 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar from './Navbar';
 import imdb from "../assets/IMDB.png";
-import play from "../assets/play.png";
 import Featured from './Featured';
 import Footer from '../components/Footer';
 
@@ -61,9 +60,6 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
                   <p className="text-sm py-2">{movieReq.overview}</p>
                   <button className='bg-[#BE123C] mt-3 hover:border-2 hover:border-gray-300 transition-all transition-300 flex  flex-row text-white px-2 py-1.5 rounded-lg '>
                  
-                  <div>
-                  <img src={play} alt="Logo" className="h-7 w-7" />
-                  </div>
                             <span className="mt-0.5 flex items-center justify-center px-1 font-semibold  ">Watch Trailer </span>
                         </button>
                 </div>

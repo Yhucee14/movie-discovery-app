@@ -50,9 +50,9 @@ const MovieDetails = () => {
     }
 
     return (
-        <div className='p-5 px-6 flex flex-row justify-between'>
+        <div className='p-5 px-6 flex flex-row sm:flex-row  justify-between'>
 
-            <div className='w-[23%] border-2 flex flex-col rounded-r-3xl items-center py-2 border-gray-400'>
+            <nav className=' sm:w-[23%] border-2 flex flex-col md:rounded-r-3xl  rounded-r-3xl items-center py-2 border-gray-400'>
                 <div className="flex items-center mr-2 py-1">
                     <img src={tv} alt="Logo" className="h-8 w-8 mr-2" />
                     <h1 className=" text-lg font-semibold px-2">MovieBox</h1>
@@ -102,9 +102,9 @@ const MovieDetails = () => {
                     <img src={Logout} alt="Logo" className="h-8 w-8 mr-2" />
                     <h1 className=" text-lg font-semibold px-2">Log out</h1>
                 </div>
-            </div>
+            </nav>
 
-            <div className='w-full px-5'>
+            <div className='w-full px-5 sm:w-[77%]'>
                 <div className='p-5 flex justify-center w-full'>
                     <div className="relative w-full">
                         <img
@@ -142,7 +142,7 @@ const MovieDetails = () => {
                     <p data-testid="movie-runtime" className='px-3 py-4 font-semibold'>{movieDetails.runtime} minutes</p>
                 </div>
 
-                <div className='grid grid-cols-2 gap-12'>
+                <div className='grid xx:grid-cols-1 sm:grid-cols-2 gap-12'>
                     <div className='w-[460px] px-2 py-1'>
                         <p data-testid="movie-overview" className='py-4'>{movieDetails.overview}</p>
 

@@ -26,9 +26,9 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
   }, [firstFiveMovies]);
 
   return (
-    <div className='xx:px-0 sm:px-5'>
+    <div className='xx:px-0 sm:px-0'>
       <Navbar setMovies={setMovies} />
-      <div className="relative w-full xx:py-3 sm:py-1 sm:h-96">
+      <div className="relative w-full xx:py-3 sm:py-0 sm:h-96">
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
@@ -46,7 +46,7 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
             <div key={movieReq.id} className="w-full xx:h-[500px] sm:h-96">
               <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='sm:h-[380px] xx:h-[500px]' />
               <div className="absolute inset-0 bg-black opacity-50"></div>
-              <div className="absolute inset-0 flex items-center justify-left xx:px-10 sm:px-20">
+              <div className="absolute inset-0 flex items-center justify-left xx:px-10 sm:px-10">
                 <div className="text-white text-left xx:w-[500px] sm:w-[400px] xx:pt-24 sm:pt-16">
                   <h1 className="xx:text-2xl sm:text-3xl font-bold xx:py-4  sm:py-2">{movieReq.title}</h1>
                   <div className='flex flex-row'>

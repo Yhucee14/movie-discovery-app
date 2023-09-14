@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types'; 
 import right from "../assets/right.png"
 import { Link } from 'react-router-dom';
-
+import imdb from "../assets/IMDB.png";
 
 const imgUrl = import.meta.env.VITE_MOVIEBOX_IMG;
 
@@ -19,11 +19,16 @@ const Featured = ({ movies }) => {
       <div className='grid sm:grid-cols-4 gap-2 py-2'>
         {movies.map((movieReq) => (
           <Link key={movieReq.id} to={`/movies/${movieReq.id}`}>
-            {/* Wrap each movie card in a Link */}
-            <div className='card flex flex-col py-4 '>
-              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='object-cover h-auto object-center' />
-              <span>{movieReq.release_date}</span>
-              <h1>{movieReq.title}</h1>
+            <div data-testid="movie-card" className='card flex flex-col py-4 '>
+              <img data-testid="movie-poster" src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='object-cover h-auto object-center' />
+              <span data-testid="movie-release-date"> {movieReq.release_date}</span>
+              <h1 data-testid="movie-title" className='font-bold text-lg'>{movieReq.title}</h1>
+              <div className='flex flex-row'>
+                    <div className='flex flex-row py-2'>
+                      <img src={imdb} alt='img' className='w-9 mt-0.5 h-5'/>
+                      <h6 className='px-6'>{movieReq.vote_average} / 10</h6>
+                    </div>
+                  </div>
             </div>
           </Link>
         ))}

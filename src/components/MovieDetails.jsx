@@ -15,7 +15,6 @@ const movieKey = import.meta.env.VITE_MOVIEBOX_KEY;
 const API_URL = 'https://api.themoviedb.org/3/movie/';
 
 
-
 const MovieDetails = () => {
     const { id } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
@@ -31,13 +30,11 @@ const MovieDetails = () => {
                 const data = await response.json();
                 setMovieDetails(data);
 
-                // Fetch credits information (includes director, actors, and writers)
                 const creditsResponse = await fetch(`${API_URL}${id}/credits?api_key=${movieKey}`);
                 if (creditsResponse.ok) {
                     const creditsData = await creditsResponse.json();
                     setCredits(creditsData);
                 } else {
-                    // Handle the case where credits data could not be fetched
                     console.error('Credits data not available.');
                 }
             } catch (error) {
@@ -49,7 +46,7 @@ const MovieDetails = () => {
     }, [id]);
 
     if (!movieDetails) {
-        return <div>Loading...</div>;
+        return <div className='p-50'>Loading...</div>;
     }
 
     return (
@@ -132,8 +129,8 @@ const MovieDetails = () => {
                                     />
                                 </svg>
 
-                               
-                            </button> <h1 className='text-white text-lg font-bold'>Watch Trailer</h1> 
+
+                            </button> <h1 className='text-white text-lg font-bold'>Watch Trailer</h1>
                         </div>
                     </div>
 
@@ -148,7 +145,7 @@ const MovieDetails = () => {
                 <div className='grid grid-cols-2 gap-12'>
                     <div className='w-[460px] px-2 py-1'>
                         <p data-testid="movie-overview" className='py-4'>{movieDetails.overview}</p>
-                        {/* Conditionally render the director, actors, and writers */}
+
                         {credits && (
                             <>
                                 <div className='flex flex-row py-2'>
@@ -180,15 +177,15 @@ const MovieDetails = () => {
                         )}
 
                         <div className='grid grid-cols-2 w-[420px] mr-6'>
-                        
-                        <button className='bg-[#BE123C] flex mt-5 px-1 justify-center flex-row text-white py-2 rounded-lg '>
-                            <a className="px-1 font-semibold ">Top rated movie #{movieDetails.id}</a>
-                        </button>
 
-                        <button className='bg-white border-2 border-gray-403  mt-4 ml-2 flex justify-center flex-row text-black py-3 rounded-lg '>
-                            <a className="px-1 font-semibold flex">Awards 9 nominations </a>
-                            <img src={down} alt="Logo" className="h-5 w-5 mr-2 mt-1" />
-                        </button>
+                            <button className='bg-[#BE123C] flex mt-5 px-1 justify-center flex-row text-white py-2 rounded-lg '>
+                                <a className="px-1 font-semibold ">Top rated movie #{movieDetails.id}</a>
+                            </button>
+
+                            <button className='bg-white border-2 border-gray-403  mt-4 ml-2 flex justify-center flex-row text-black py-3 rounded-lg '>
+                                <a className="px-1 font-semibold flex">Awards 9 nominations </a>
+                                <img src={down} alt="Logo" className="h-5 w-5 mr-2 mt-1" />
+                            </button>
                         </div>
                     </div>
 
@@ -204,7 +201,7 @@ const MovieDetails = () => {
                         </button>
 
                         <div>
-                            <div className=' mt-4'> 
+                            <div className=' mt-4'>
                                 <div className=' py-2 '>
                                     <img
                                         src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}

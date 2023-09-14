@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar from './Navbar';
 import imdb from "../assets/IMDB.png";
+import play from "../assets/play.png";
 import Featured from './Featured';
 import Footer from '../components/Footer';
 
 const imgUrl = import.meta.env.VITE_MOVIEBOX_IMG;
 
-const CAROUSEL_DELAY = 3000; 
+const CAROUSEL_DELAY = 3000;
 
 const Hero = ({ firstFiveMovies, setMovies, movies }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      // Advance to the next slide
       setCurrentSlide((prevSlide) => (prevSlide + 1) % firstFiveMovies.length);
     }, CAROUSEL_DELAY);
 
@@ -26,8 +26,8 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
   }, [firstFiveMovies]);
 
   return (
-    <div>
-      <Navbar setMovies={setMovies}/>
+    <div className='px-5'>
+      <Navbar setMovies={setMovies} />
       <div className="relative w-full h-96">
         <Carousel
           autoPlay={true}
@@ -44,31 +44,32 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
         >
           {firstFiveMovies.map((movieReq) => (
             <div key={movieReq.id} className="w-full h-96">
-              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='bg-contain object-center'/>
+              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='h-[380px]' />
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="absolute inset-0 flex items-center justify-left px-20">
                 <div className="text-white text-left w-[400px] pt-16">
                   <h1 className="text-2xl font-semibold py-2">{movieReq.title}</h1>
                   <div className='flex flex-row'>
                     <div className='flex flex-row py-2'>
-                      <img src={imdb} alt='img'/>
-                      <h6 className='px-6'>{movieReq.vote_average}</h6>
+                      <img src={imdb} alt='img' className='w-4 mt-0.5 h-6' />
+                      <h6 className='px-2 w-[110px]'>{movieReq.vote_average} / 10</h6>
                     </div>
                   </div>
                   <p className="text-sm py-2">{movieReq.overview}</p>
-                  <button className='bg-red-700 p-1 rounded-md px-3 text-white'>
-                    Watch Trailer
-                  </button>
+                  <button className='bg-[#BE123C] flex  flex-row text-white px-3 py-2 rounded-lg '>
+                            
+                            <span className="px-1 font-semibold">Watch Trailer </span>
+                        </button>
                 </div>
               </div>
             </div>
           ))}
         </Carousel>
       </div>
-      
+
       <Featured movies={movies} setMovies={setMovies} />
 
-      
+
       <Footer />
 
     </div>

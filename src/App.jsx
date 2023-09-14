@@ -34,7 +34,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Hero firstFiveMovies={firstFiveMovies} movies={movies} setFirstFiveMovies={setFirstFiveMovies} setMovies={setMovies} />} />
         <Route path="/featured" element={<Featured movies={movies} setMovies={setMovies} />} />
-        {/* Use the :id parameter in the path */}
+     
         <Route path="/movies/:id" element={<MovieDetails firstFiveMovies={firstFiveMovies} />} />
       </Routes>
     </Router>

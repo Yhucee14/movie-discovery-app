@@ -16,8 +16,8 @@ const Footer = () => {
 
         <div className='py-2 flex sm:flex-row xx:flex-col justify-center'>
             <a className='cursor-pointer py-3 px-3 font-bold text-lg text-gray-600'>Conditions of Use</a>
-            <a className='cursor-pointer px-3 font-bold text-lg text-gray-600'>Privacy & Policy</a>
-            <a className='cursor-pointer font-bold  px-3 py-2 text-lg  text-gray-600'>Press Room</a>
+            <a className='cursor-pointer px-3 font-bold mt-3 text-lg text-gray-600'>Privacy & Policy</a>
+            <a className='cursor-pointer font-bold  px-3 py-2 mt-1 text-lg  text-gray-600'>Press Room</a>
         </div>
         <div className='py-3 font-semibold text-md text-gray-400'>@2021 MovieBox by Adriana Eka Prayudha</div>
     </div>

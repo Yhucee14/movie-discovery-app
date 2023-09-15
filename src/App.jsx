@@ -25,7 +25,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setFirstFiveMovies(data.results.slice(0, 3));
+        setFirstFiveMovies(data.results.slice(0, 5));
       });
   }, []);
 

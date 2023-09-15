@@ -33,7 +33,7 @@ const Navbar = ({ setMovies }) => {
   }
 
   return (
-    <nav className="fixed top-0  left-0  w-full z-10">
+    <nav className="fixed top-0 left-0 xx:ml-3 xx:mt-3 sm:ml-0 sm:mt-0 w-full z-10">
       <div className="container xx:w-full sm:ml-10 px-0 py-5 flex flex-row justify-between items-center bg-opacity-50 backdrop-blur-md">
         {/* Logo */}
         <div className="flex items-center mr-8">
@@ -42,7 +42,7 @@ const Navbar = ({ setMovies }) => {
         </div>
 
         {/* Search Bar */}
-        <div className="relative  xx:ml-0 sm:ml-2 sm:block sm:w-[400px]">
+        <div className="relative  xx:ml-0 sm:ml-2 sm:block  sm:w-[400px]">
           <form onSubmit={searchMovie}>
             <input
               type="text"
@@ -50,7 +50,7 @@ const Navbar = ({ setMovies }) => {
               name="query"
               value={query}
               onChange={changeHandler}
-              className="w-full px-3 py-1 rounded-md bg-transparent border text-white focus:outline-none focus:bg-transparent focus:ring-1 focus:ring-white pr-8 placeholder-white"
+              className="w-full px-2 py-1 rounded-md bg-transparent border text-white focus:outline-none focus:bg-transparent focus:ring-1 focus:ring-white pr-8 placeholder-white"
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3">
               <img src={search} alt="Search Icon" className="h-5 w-5 bg-transparent" style={{ fill: 'white' }} />
@@ -71,7 +71,7 @@ const Navbar = ({ setMovies }) => {
         </div>
 
         {/* Desktop Sign In */}
-        <div className="hidden sm:flex px-4 mr-12 py-2 text-white">
+        <div className="hidden sm:flex px-4 mr-8 py-2 text-white">
           <a className="px-3">Sign In</a>
         </div>
       </div>

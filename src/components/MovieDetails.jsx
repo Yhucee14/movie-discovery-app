@@ -172,18 +172,20 @@ const MovieDetails = () => {
 
                         {credits && (
                             <>
-                                <div className='flex xx:flex-col sm:flex-row py-2'>
+                                <div className='flex xx:flex-col sm:flex-row sm:w-[420px] sm py-2'>
                                     <h3>Director:</h3>
                                     {credits.crew
+                                        
                                         .filter(member => member.job === "Director")
+                                        .slice(0, 2)
                                         .map(member => (
                                             <p key={member.id} className='px-1 flex text-[#BE123C]'>{member.name}</p>
                                         ))}
                                 </div>
-                                <div className='flex xx:flex-col sm:flex-row py-2 w-[400px]'>
+                                <div className='flex xx:flex-col sm:flex-row py-2 sm:w-[420px]'>
                                     <h3>Actors:</h3>
                                     {credits.cast
-                                        .slice(0, 3)
+                                        .slice(0, 2)
                                         .map(actor => (
                                             <p key={actor.id} className='px-1  flex text-[#BE123C]'>{actor.name}</p>
                                         ))}

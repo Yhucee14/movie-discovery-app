@@ -11,7 +11,7 @@ import ticket from "../assets/ticket.png"
 import down from "../assets/down.png"
 import { Link } from 'react-router-dom';
 import Menu from "../assets/Menu.png";
-import Close from "../assets/close.png";
+import Close from "../assets/Close.png";
 
 const movieKey = import.meta.env.VITE_MOVIEBOX_KEY;
 const API_URL = 'https://api.themoviedb.org/3/movie/';

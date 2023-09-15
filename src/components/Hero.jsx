@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import imdb from "../assets/IMDB.png";
 import Featured from './Featured';
 import Footer from '../components/Footer';
+import play from "../assets/play.png";
 
 const imgUrl = import.meta.env.VITE_MOVIEBOX_IMG;
 
@@ -59,7 +60,9 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
                   </div>
                   <p className="text-sm py-2">{movieReq.overview}</p>
                   <button className='bg-[#BE123C] mt-3 hover:border-2 hover:border-gray-300 transition-all transition-300 flex  flex-row text-white px-2 py-1.5 rounded-lg '>
-                 
+                  <div>
+                  <img src={play} alt='img' className='w-4 mt-0.5 h-6' />
+                  </div>
                             <span className="mt-0.5 flex items-center justify-center px-1 font-semibold  ">Watch Trailer </span>
                         </button>
                 </div>

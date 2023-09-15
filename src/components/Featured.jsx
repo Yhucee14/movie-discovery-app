@@ -7,6 +7,11 @@ import imdb from "../assets/IMDB.png";
 const imgUrl = import.meta.env.VITE_MOVIEBOX_IMG;
 
 const Featured = ({ movies }) => {
+  const getReleaseDateMillis = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.getTime();
+  };
+  
   return (
     <div className='px-5 py-4 sm:pt-0'>
       <div className='flex flex-row justify-between py-2'>
@@ -21,7 +26,7 @@ const Featured = ({ movies }) => {
           <Link key={movieReq.id} to={`/movies/${movieReq.id}`}>
             <div data-testid="movie-card" className='card shadow-md  flex flex-col py-4 '>
               <img data-testid="movie-poster" src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='object-cover h-auto object-center' />
-              <span data-testid="movie-release-date" className='py-2 px-1'> {movieReq.release_date}</span>
+              <span data-testid="movie-release-date" className='py-2 px-1'> {getReleaseDateMillis(movieReq.release_date)}</span>
               <h1 data-testid="movie-title" className='font-bold text-lg px-1'>{movieReq.title}</h1>
               <div className='flex flex-row px-1'>
                     <div className='flex flex-row py-2'>

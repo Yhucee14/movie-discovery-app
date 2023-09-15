@@ -27,7 +27,7 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
   return (
     <div className='xx:px-0 sm:px-0'>
       <Navbar setMovies={setMovies} />
-      <div className="relative w-full xx:py-3 sm:py-0 sm:h-96">
+      <div className="relative w-full xx:py-3 sm:py-0 ">
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
@@ -42,8 +42,8 @@ const Hero = ({ firstFiveMovies, setMovies, movies }) => {
           onChange={(index) => setCurrentSlide(index)}
         >
           {firstFiveMovies.map((movieReq) => (
-            <div key={movieReq.id} className="w-full xx:h-[500px] sm:h-96">
-              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className='sm:h-[380px] xx:h-[500px]' />
+            <div key={movieReq.id} className="w-full xx:h-[500px] ">
+              <img src={imgUrl + movieReq.poster_path} alt={movieReq.title} className=' xx:h-[500px]' />
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="absolute inset-0 flex items-center justify-left xx:px-10 sm:px-10">
                 <div className="text-white text-left xx:w-[500px] sm:w-[400px] xx:pt-24 sm:pt-16">
